@@ -1,14 +1,17 @@
 enum States {IDLE, WALK, ATTACK, SHOOT}
 Player player;
+background background;
 
 void setup(){
   size(400, 400);
   
   player = new Player();
+  background = new background();
 }
 
 void draw(){
   background(255);
+  background.display();
   player.display();
   player.movement();
   

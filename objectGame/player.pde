@@ -13,38 +13,38 @@ class Player{
   void display(){
     rectMode(CENTER);
     fill(198, 0 ,0);
-    rect(position.x, position.y, 20, 20);
+    rect(width/2, height/2, 20, 20);
   }
   
   void movement(){
     if (walking){
       state = States.WALK;
       if(facing == 1){
-        acceleration.x = 0.3;
-        if(velocity.x > 5){
-          acceleration.x = 0;
-          velocity.x = 5;
-        }
-      }
-      if(facing == 2){
         acceleration.x = -0.3;
         if(velocity.x < -5){
           acceleration.x = 0;
           velocity.x = -5;
         }
       }
-      if(facing == 3){
-        acceleration.y = -0.3;
-        if(velocity.y < -5){
-          acceleration.y = 0;
-          velocity.y = -5;
+      if(facing == 2){
+        acceleration.x = 0.3;
+        if(velocity.x > 5){
+          acceleration.x = 0;
+          velocity.x = 5;
         }
       }
-      if(facing == 4){
+      if(facing == 3){
         acceleration.y = 0.3;
         if(velocity.y > 5){
           acceleration.y = 0;
           velocity.y = 5;
+        }
+      }
+      if(facing == 4){
+        acceleration.y = -0.3;
+        if(velocity.y < -5){
+          acceleration.y = 0;
+          velocity.y = -5;
         }
       }
     } else{
