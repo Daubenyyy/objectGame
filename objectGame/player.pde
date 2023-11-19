@@ -58,5 +58,25 @@ class Player{
     velocity.add(acceleration);
     position.add(velocity);
   }
+  
+  void attacking(){
+    if(attacking){
+      state = States.ATTACK;
+      if(facing == 1){
+        rect((width/2) + 20, height/2, 20, 5);
+      }
+      if(facing == 2){
+        rect((width/2) - 20, height/2, 20, 5);
+      }
+      if(facing == 3){
+        rect(width/2, (height/2) - 20, 5, 20);
+      }
+      if(facing == 4){
+        rect(width/2, (height/2) + 20, 5, 20);
+      }
+    } else{
+      state = States.IDLE;
+    }
+  }
 
 }
