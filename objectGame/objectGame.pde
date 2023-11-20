@@ -1,24 +1,35 @@
 enum States {IDLE, WALK, ATTACK, SHOOT}
 Player player;
 background background;
+gamestates gamestate;
+
+int gameState;
 
 void setup(){
   size(400, 400);
   frameRate(60);
   
+  gameState = 1;
+  
   player = new Player();
   background = new background();
+  gamestate = new gamestates();
 }
 
 void draw(){
-  background(255);
-  background.display();
-  player.display();
-  player.movement();
-  player.attacking();
-  println(player.facing);
-  println(player.walking);
-  println(player.attacking);
+  if(gameState == 1){
+    gamestate.startMenu();
+  }
+  if(gameState == 2){
+    background(255);
+    background.display();
+    player.display();
+    player.movement();
+    player.attacking();
+    println(player.facing);
+    println(player.walking);
+    println(player.attacking);
+  }
 }
 
 void keyPressed(){
