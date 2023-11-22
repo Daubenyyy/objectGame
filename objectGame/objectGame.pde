@@ -2,6 +2,7 @@ enum States {IDLE, WALK, ATTACK, SHOOT}
 Player player;
 background background;
 gamestates gamestate;
+arrow arrow;
 
 int gameState;
 
@@ -14,6 +15,9 @@ void setup(){
   player = new Player();
   background = new background();
   gamestate = new gamestates();
+  
+  ArrayList<arrow> arrow = new ArrayList<arrow>();
+  arrow.add(new arrow());
 }
 
 void draw(){
