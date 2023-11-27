@@ -27,12 +27,11 @@ void draw(){
   if(gameState == 2){
     background(255);
     background.display();
+    background.collision();
     player.display();
     player.movement();
     player.attacking();
-    println(player.facing);
-    println(player.walking);
-    println(player.attacking);
+    println(player.position.x);
   }
 }
 

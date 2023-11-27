@@ -8,12 +8,16 @@ class Player{
   boolean walking = false;
   boolean attacking = false;
   boolean shooting = false;
+  
   int facing = 1;
+  
+  float w = 20;
+  float h = 20;
   
   void display(){
     rectMode(CENTER);
     fill(198, 0 ,0);
-    rect(width/2, height/2, 20, 20);
+    rect(width/2, height/2, w, h);
   }
   
   void movement(){
