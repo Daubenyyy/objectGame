@@ -31,7 +31,9 @@ void draw(){
     player.display();
     player.movement();
     player.attacking();
-    println(player.position.x);
+    println(background.positionX);
+    println(player.pX);
+    println(background.hit);
   }
 }
 

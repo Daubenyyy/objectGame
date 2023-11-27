@@ -6,6 +6,8 @@ class background{
   float w = 30;
   float h = 300;
   
+  boolean hit;
+  
   void display(){
     positionX = player.position.x - rectX; 
     positionY = player.position.y - rectY; 
@@ -16,8 +18,29 @@ class background{
   }
   
   void collision(){
-    if(player.position.x - (player.w/2) >= positionX + (w/2) && player.position.x + (player.w/2) <= positionX - (w/2)){
-      player.velocity.x = 0;
+    if(player.pX - player.w/2 <= positionX + w/2 && player.pX + player.w/2 >= positionX - w/2 && player.pY - player.h/2 <= positionY + h/2 && player.pY + player.h/2 >= positionY - h/2){
+      hit = true;
+    } else{
+      hit = false;
+    }
+    
+    if(hit == true){
+      if(player.facing == 1){
+        player.position.x = player.position.x + 1;
+        player.walking = false;
+      }
+      if(player.facing == 2){
+        player.position.x = player.position.x - 1;
+        player.walking = false;
+      }
+      if(player.facing == 3){
+        player.position.y = player.position.y - 1;
+        player.walking = false;
+      }
+      if(player.facing == 4){
+        player.position.y = player.position.y + 1;
+        player.walking = false;
+      }
     }
   }
 }

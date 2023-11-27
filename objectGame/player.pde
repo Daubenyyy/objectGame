@@ -11,13 +11,15 @@ class Player{
   
   int facing = 1;
   
+  float pX = width/2;
+  float pY = width/2;
   float w = 20;
   float h = 20;
   
   void display(){
     rectMode(CENTER);
     fill(198, 0 ,0);
-    rect(width/2, height/2, w, h);
+    rect(pX, pY, w, h);
   }
   
   void movement(){
