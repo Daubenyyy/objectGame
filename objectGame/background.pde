@@ -18,7 +18,10 @@ class background{
   }
   
   void collision(){
-    if(player.pX - player.w/2 <= positionX + w/2 && player.pX + player.w/2 >= positionX - w/2 && player.pY - player.h/2 <= positionY + h/2 && player.pY + player.h/2 >= positionY - h/2){
+    if(player.pX - player.w/2 <= positionX + w/2 
+    && player.pX + player.w/2 >= positionX - w/2 
+    && player.pY - player.h/2 <= positionY + h/2 
+    && player.pY + player.h/2 >= positionY - h/2){
       hit = true;
     } else{
       hit = false;

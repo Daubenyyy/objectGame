@@ -8,4 +8,10 @@ class gamestates{
       gameState = 2;
     }
   }
+  
+  void winMenu(){
+    background(0);
+    textSize(50);
+    text("win!", 150, 200);
+  }
 }

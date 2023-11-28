@@ -2,7 +2,8 @@ enum States {IDLE, WALK, ATTACK, SHOOT}
 Player player;
 background background;
 gamestates gamestate;
-arrow arrow;
+door door;
+Key Key;
 
 int gameState;
 
@@ -15,7 +16,10 @@ void setup(){
   player = new Player();
   background = new background();
   gamestate = new gamestates();
+  door = new door();
+  Key = new Key();
   
+  Key.getKey = false;
   
 }
 
@@ -27,12 +31,16 @@ void draw(){
     background(255);
     background.display();
     background.collision();
+    door.display();
+    door.collision();
+    Key.display();
+    Key.collision();
     player.display();
     player.movement();
     player.attacking();
-    println(background.positionX);
-    println(player.pX);
-    println(background.hit);
+  }
+  if(gameState == 3){
+    gamestate.winMenu();
   }
 }
 
