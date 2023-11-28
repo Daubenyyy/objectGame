@@ -16,8 +16,7 @@ void setup(){
   background = new background();
   gamestate = new gamestates();
   
-  ArrayList<arrow> arrow = new ArrayList<arrow>();
-  arrow.add(new arrow());
+  
 }
 
 void draw(){
