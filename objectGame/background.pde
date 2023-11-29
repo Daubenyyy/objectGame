@@ -1,10 +1,10 @@
 class background{
-  float rectX = 30;
-  float rectY = 50;
+  float rectX;
+  float rectY;
+  float w;
+  float h;
   float positionX;
   float positionY;
-  float w = 30;
-  float h = 300;
   
   boolean hit;
   
