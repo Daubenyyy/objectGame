@@ -3,6 +3,7 @@ Player player;
 gamestates gamestate;
 door door;
 Key Key;
+enemy enemy;
 
 int gameState;
 
@@ -13,14 +14,12 @@ void setup(){
   gameState = 1;
   
   player = new Player();
-  ArrayList<background> background = new ArrayList<background>();
   gamestate = new gamestates();
   door = new door();
   Key = new Key();
+  enemy = new enemy();
   
   Key.getKey = false;
-  
-  background.add(new background());
   
 }
 
@@ -34,9 +33,14 @@ void draw(){
     door.collision();
     Key.display();
     Key.collision();
+    enemy.display();
+    enemy.sightlines();
     player.display();
     player.movement();
     player.attacking();
+    println(enemy.seePlayer);
+    println(player.position.x);
+    println(enemy.positionX);
   }
   if(gameState == 3){
     gamestate.winMenu();
