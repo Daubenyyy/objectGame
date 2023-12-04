@@ -5,6 +5,8 @@ door door;
 Key Key;
 enemy enemy;
 
+Background[] Background = new Background[10];
+
 int gameState;
 
 void setup(){
@@ -19,6 +21,21 @@ void setup(){
   Key = new Key();
   enemy = new enemy();
   
+  Background[0] = new Background();
+  Background[1] = new Background();
+  Background[2] = new Background();
+  Background[3] = new Background();
+  Background[4] = new Background();
+  
+  Background[0].rectX = 100;
+  Background[0].rectY = 100;
+  Background[0].w = 40;
+  Background[0].h = 500;
+  Background[1].rectX = 70;
+  Background[1].rectY = 150;
+  Background[1].w = 500;
+  Background[1].h = 40;
+  
   Key.getKey = false;
   
 }
@@ -29,18 +46,23 @@ void draw(){
   }
   if(gameState == 2){
     background(255);
+    Background[0].display();
+    Background[0].collision();
+    Background[1].display();
+    Background[1].collision();
+    
     door.display();
     door.collision();
     Key.display();
     Key.collision();
     enemy.display();
     enemy.sightlines();
+    enemy.collision();
     player.display();
     player.movement();
     player.attacking();
-    println(enemy.seePlayer);
-    println(player.position.x);
-    println(enemy.positionX);
+    println(enemy.health);
+    println(player.facing);
   }
   if(gameState == 3){
     gamestate.winMenu();

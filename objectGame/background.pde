@@ -1,4 +1,4 @@
-class background{
+class Background{
   float rectX;
   float rectY;
   float w;
