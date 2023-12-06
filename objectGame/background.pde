@@ -9,6 +9,18 @@ class Background{
   boolean hit;
   boolean hitEnemy;
   
+  Background(float rectX, float rectY, float w, float h)
+  {
+   this.rectX = rectX;
+   this.rectY = rectY;
+   this.w = w;
+   this.h = h;
+  }
+  
+  Background(){
+    
+  }
+  
   void display(){
     positionX = player.position.x - rectX; 
     positionY = player.position.y - rectY; 

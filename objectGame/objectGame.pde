@@ -26,20 +26,20 @@ void setup(){
   Key = new Key();
   enemy = new enemy();
   
-  Background[0] = new Background();
+  Background[0] = new Background(100, 100, 40, 500);
   Background[1] = new Background();
   Background[2] = new Background();
   Background[3] = new Background();
   Background[4] = new Background();
   
-  Background[0].rectX = 100;
-  Background[0].rectY = 100;
-  Background[0].w = 40;
-  Background[0].h = 500;
-  Background[1].rectX = 70;
-  Background[1].rectY = 150;
-  Background[1].w = 500;
-  Background[1].h = 40;
+  //Background[0].rectX = 100;
+  //Background[0].rectY = 100;
+  //Background[0].w = 40;
+  //Background[0].h = 500;
+  //Background[1].rectX = 70;
+  //Background[1].rectY = 150;
+  //Background[1].w = 500;
+  //Background[1].h = 40;
   
   Key.getKey = false;
   
