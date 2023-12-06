@@ -58,10 +58,10 @@ class Background{
     
     if(hitEnemy == true){
       if(enemy.facing == 1){
-        
+        enemy.posX = enemy.posX + 1;
       }
       if(enemy.facing == 2){
-        
+        enemy.posX = enemy.posX - 1;
       }
       if(enemy.facing == 3){
         

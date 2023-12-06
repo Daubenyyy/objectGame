@@ -45,20 +45,20 @@ class enemy{
       }
     
       if(seePlayer == true){
-        if(positionX <= player.pX){
-          posX = posX - 1.0001;
+        if(positionX <= player.pX + player.w/2){
+          posX = posX - 1;
           facing = 1;
         }
-        if(positionX >= player.pX){
-          posX = posX + 1.0001;
+        if(positionX >= player.pX - player.w/2){
+          posX = posX + 1;
           facing = 2;
         } 
-        if(positionY <= player.pY){
-          posY = posY - 1.0001;
+        if(positionY <= player.pY + player.h/2){
+          posY = posY - 1;
           facing = 3;
         } 
-        if(positionY >= player.pY){
-          posY = posY + 1.0001;
+        if(positionY >= player.pY - player.h/2){
+          posY = posY + 1;
           facing = 4;
         } 
       }

@@ -5,9 +5,14 @@ door door;
 Key Key;
 enemy enemy;
 
+import processing.sound.*;
+SoundFile bgm;
+
 Background[] Background = new Background[10];
 
 int gameState;
+
+boolean playMusic;
 
 void setup(){
   size(400, 400);
@@ -38,6 +43,8 @@ void setup(){
   
   Key.getKey = false;
   
+  bgm = new SoundFile(this, "Dungeon_Theme.wav");
+  
 }
 
 void draw(){
@@ -51,6 +58,16 @@ void draw(){
     Background[1].display();
     Background[1].collision();
     
+    if(playMusic == false){
+      bgm.play();
+    }
+    
+    if(bgm.isPlaying()){
+      playMusic = true;
+    } else{
+      playMusic = false;
+    }
+    
     door.display();
     door.collision();
     Key.display();
@@ -61,8 +78,7 @@ void draw(){
     player.display();
     player.movement();
     player.attacking();
-    println(enemy.health);
-    println(player.facing);
+    println(enemy.facing);
   }
   if(gameState == 3){
     gamestate.winMenu();
