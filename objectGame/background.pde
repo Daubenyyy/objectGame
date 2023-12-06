@@ -7,6 +7,7 @@ class Background{
   float positionY;
   
   boolean hit;
+  boolean hitEnemy;
   
   void display(){
     positionX = player.position.x - rectX; 
@@ -27,6 +28,15 @@ class Background{
       hit = false;
     }
     
+    if(enemy.positionX - enemy.w/2 <= positionX + w/2 
+    && enemy.positionX + enemy.w/2 >= positionX - w/2 
+    && enemy.positionY - enemy.h/2 <= positionY + h/2 
+    && enemy.positionY + enemy.h/2 >= positionY - h/2){
+      hitEnemy = true;
+    } else{
+      hitEnemy = false;
+    }
+    
     if(hit == true){
       if(player.facing == 1){
         player.position.x = player.position.x + 1;
@@ -43,6 +53,21 @@ class Background{
       if(player.facing == 4){
         player.position.y = player.position.y + 1;
         player.walking = false;
+      }
+    }
+    
+    if(hitEnemy == true){
+      if(enemy.facing == 1){
+        
+      }
+      if(enemy.facing == 2){
+        
+      }
+      if(enemy.facing == 3){
+        
+      }
+      if(enemy.facing == 4){
+        
       }
     }
   }
