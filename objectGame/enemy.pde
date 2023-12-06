@@ -27,7 +27,8 @@ class enemy{
     if(dead == false){
       fill(255, 0, 141);
       rect(positionX, positionY, w, h);
-      fill(150, 150, 150, 60);
+      noStroke();
+      fill(150, 150, 150, 0);
       rect(cx, cy, cw, ch);
     }
     
@@ -73,6 +74,7 @@ class enemy{
       && player.pY - player.h/2 <= positionY + h/2 
       && player.pY + player.h/2 >= positionY - h/2){
         health = health - 1;
+        posX = posX - 25;
       }
       
       if(player.facing == 2 
@@ -81,6 +83,7 @@ class enemy{
       && player.pY - player.h/2 <= positionY + h/2 
       && player.pY + player.h/2 >= positionY - h/2){
         health = health - 1;
+        posX = posX + 25;
       }
       
       if(player.facing == 3 
@@ -89,6 +92,7 @@ class enemy{
       && (player.pY - 20) - player.h/2 <= positionY + h/2 
       && (player.pY - 20) + player.h/2 >= positionY - h/2){
         health = health - 1;
+        posY = posY + 25;
       }
       
       if(player.facing == 4
@@ -97,6 +101,7 @@ class enemy{
       && (player.pY + 20) - player.h/2 <= positionY + h/2 
       && (player.pY + 20) + player.h/2 >= positionY - h/2){
         health = health - 1;
+        posY = posY - 25;
       }
     }
     

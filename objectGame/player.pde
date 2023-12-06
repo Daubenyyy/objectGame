@@ -10,6 +10,7 @@ class Player{
   boolean shooting = false;
   
   int facing = 1;
+  int lastFacing;
   
   float pX = width/2;
   float pY = width/2;
@@ -53,6 +54,7 @@ class Player{
           velocity.y = -5;
         }
       }
+  
     } else{
       state = States.IDLE;
       velocity.x = 0;
@@ -61,6 +63,7 @@ class Player{
       acceleration.y = 0;
     }
     
+    velocity.setMag(5);
     velocity.add(acceleration);
     position.add(velocity);
   }

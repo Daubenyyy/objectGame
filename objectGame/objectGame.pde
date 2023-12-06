@@ -52,7 +52,7 @@ void draw(){
     gamestate.startMenu();
   }
   if(gameState == 2){
-    background(255);
+    background(150);
     Background[0].display();
     Background[0].collision();
     Background[1].display();
@@ -79,13 +79,16 @@ void draw(){
     player.movement();
     player.attacking();
     println(enemy.facing);
+    println(player.facing);
   }
   if(gameState == 3){
     gamestate.winMenu();
+    bgm.stop();
   }
 }
 
 void keyPressed(){
+  
   if(key == 'd' || key == 'D'){
     player.facing = 1;
     player.walking = true;
@@ -109,26 +112,35 @@ void keyPressed(){
   if(key == ' '){
     player.attacking = true;
   }
+  player.velocity.x = constrain(player.velocity.x, - 5, 5);
+  player.velocity.y = constrain(player.velocity.y, - 5, 5);
 }
 
 void keyReleased(){
   if(key == 'd' || key == 'D'){
     player.walking = false;
+    player.lastFacing = 1;
   }
   
   if(key == 'a' || key == 'A'){
     player.walking = false;
+    player.lastFacing = 2;
   }
   
   if(key == 'w' || key == 'W'){
     player.walking = false;
+    player.lastFacing = 3;
   }
   
   if(key == 's' || key == 'S'){
     player.walking = false;
+    player.lastFacing = 4;
   }
   
   if(key == ' '){
     player.attacking = false;
   }
+  
+  player.velocity.x = constrain(player.velocity.x, - 5, 5);
+  player.velocity.y = constrain(player.velocity.y, - 5, 5);
 }
