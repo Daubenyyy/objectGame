@@ -27,19 +27,10 @@ void setup(){
   enemy = new enemy();
   
   Background[0] = new Background(100, 100, 40, 500);
-  Background[1] = new Background();
-  Background[2] = new Background();
-  Background[3] = new Background();
-  Background[4] = new Background();
-  
-  //Background[0].rectX = 100;
-  //Background[0].rectY = 100;
-  //Background[0].w = 40;
-  //Background[0].h = 500;
-  //Background[1].rectX = 70;
-  //Background[1].rectY = 150;
-  //Background[1].w = 500;
-  //Background[1].h = 40;
+  Background[1] = new Background(70, 150, 500, 40);
+  Background[2] = new Background(-170, 150, 40, 270);
+  Background[3] = new Background(-170, -100, 40, 100);
+  Background[4] = new Background(50, -140, 700, 40);
   
   Key.getKey = false;
   
@@ -57,6 +48,12 @@ void draw(){
     Background[0].collision();
     Background[1].display();
     Background[1].collision();
+    Background[2].display();
+    Background[2].collision();
+    Background[3].display();
+    Background[3].collision();
+    Background[4].display();
+    Background[4].collision();
     
     if(playMusic == false){
       bgm.play();

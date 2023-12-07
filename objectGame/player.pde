@@ -28,30 +28,30 @@ class Player{
       state = States.WALK;
       if(facing == 1){
         acceleration.x = -0.3;
-        if(velocity.x < -5){
+        if(velocity.x < -3){
           acceleration.x = 0;
-          velocity.x = -5;
+          velocity.x = -3;
         }
       }
       if(facing == 2){
         acceleration.x = 0.3;
-        if(velocity.x > 5){
+        if(velocity.x > 3){
           acceleration.x = 0;
-          velocity.x = 5;
+          velocity.x = 3;
         }
       }
       if(facing == 3){
         acceleration.y = 0.3;
-        if(velocity.y > 5){
+        if(velocity.y > 3){
           acceleration.y = 0;
-          velocity.y = 5;
+          velocity.y = 3;
         }
       }
       if(facing == 4){
         acceleration.y = -0.3;
-        if(velocity.y < -5){
+        if(velocity.y < -3){
           acceleration.y = 0;
-          velocity.y = -5;
+          velocity.y = -3;
         }
       }
   
