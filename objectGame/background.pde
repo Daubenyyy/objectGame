@@ -50,36 +50,36 @@ class Background{
     }
     
     if(hit == true){
-      if(player.facing == 1){
+      if(player.pX + player.w/2 <= positionX + w/2){
         player.position.x = player.position.x + 1;
         player.walking = false;
       }
-      if(player.facing == 2){
+      if(player.pX - player.w/2 >= positionX - w/2){
         player.position.x = player.position.x - 1;
         player.walking = false;
       }
-      if(player.facing == 3){
+      if(player.pY - player.h/2 >= positionY - h/2){
         player.position.y = player.position.y - 1;
         player.walking = false;
       }
-      if(player.facing == 4){
+      if(player.pY + player.h/2 <= positionY + h/2){
         player.position.y = player.position.y + 1;
         player.walking = false;
       }
     }
     
     if(hitEnemy == true){
-      if(enemy.facing == 1){
+      if(enemy.posX + enemy.w/2 <= positionX + w/2){
         enemy.posX = enemy.posX + 1;
       }
-      if(enemy.facing == 2){
+      if(enemy.posX - enemy.w/2 >= positionX - w/2){
         enemy.posX = enemy.posX - 1;
       }
-      if(enemy.facing == 3){
-        
+      if(enemy.posY - enemy.h/2 >= positionY - h/2){
+        enemy.posY = enemy.posY - 1;
       }
-      if(enemy.facing == 4){
-        
+      if(enemy.posY + enemy.h/2 <= positionY + h/2){
+        enemy.posY = enemy.posY + 1;
       }
     }
   }

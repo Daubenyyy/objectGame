@@ -75,8 +75,8 @@ void draw(){
     player.display();
     player.movement();
     player.attacking();
-    println(enemy.facing);
-    println(player.facing);
+    println(player.position.x);
+    println(Background[0].positionX);
   }
   if(gameState == 3){
     gamestate.winMenu();
