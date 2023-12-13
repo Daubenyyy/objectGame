@@ -1,4 +1,5 @@
 class Background{
+  //varibles for properties
   float rectX;
   float rectY;
   float w;
@@ -9,7 +10,7 @@ class Background{
   boolean hit;
   boolean hitEnemy;
   
-  Background(float rectX, float rectY, float w, float h)
+  Background(float rectX, float rectY, float w, float h) //constricters for varibles
   {
    this.rectX = rectX;
    this.rectY = rectY;
@@ -21,7 +22,7 @@ class Background{
     
   }
   
-  void display(){
+  void display(){ //draws the object
     positionX = player.position.x - rectX; 
     positionY = player.position.y - rectY; 
     
@@ -31,6 +32,7 @@ class Background{
   }
   
   void collision(){
+    //checks if the player has collided with the object
     if(player.pX - player.w/2 <= positionX + w/2 
     && player.pX + player.w/2 >= positionX - w/2 
     && player.pY - player.h/2 <= positionY + h/2 
@@ -40,6 +42,7 @@ class Background{
       hit = false;
     }
     
+    //checks if the enemy has collided with the object
     if(enemy.positionX - enemy.w/2 <= positionX + w/2 
     && enemy.positionX + enemy.w/2 >= positionX - w/2 
     && enemy.positionY - enemy.h/2 <= positionY + h/2 
@@ -49,6 +52,7 @@ class Background{
       hitEnemy = false;
     }
     
+    //pushes back the player so they can't clip through the wall
     if(hit == true){
       if(player.pX + player.w/2 <= positionX + w/2){
         player.position.x = player.position.x + 1;
@@ -68,6 +72,7 @@ class Background{
       }
     }
     
+    //pushes back the enemy so they can't clip though the wall
     if(hitEnemy == true){
       if(enemy.posX + enemy.w/2 <= positionX + w/2){
         enemy.posX = enemy.posX + 1;

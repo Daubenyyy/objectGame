@@ -1,6 +1,7 @@
 class enemy{
-  float posX = -50;
-  float posY = 300;
+  //varibles
+  float posX;
+  float posY;
   float positionX;
   float positionY;
   float w = 20;
@@ -11,20 +12,28 @@ class enemy{
   float ch = 250;
   
   int health = 3;
-  int facing;
   
   boolean seePlayer;
   boolean dead = false;
   
-  void display(){
+  enemy(float posX, float posY){
+    this.posX = posX;
+    this.posY = posY;
+  }
+  
+  enemy(){
     
+  }
+  
+  void display(){
+    //draws the object
     positionX = player.position.x - posX;
     positionY = player.position.y - posY;
     cx = positionX;
     cy = positionY;
     
     rectMode(CENTER);
-    if(dead == false){
+    if(dead == false){ //only works if the enemy is not dead
       fill(255, 0, 141);
       rect(positionX, positionY, w, h);
       noStroke();
@@ -35,6 +44,7 @@ class enemy{
   }
   
   void sightlines(){
+    //checks to see if the enemy can see the player
     if(dead == false){
       if(player.pX - player.w/2 <= cx + cw/2 
       && player.pX + player.w/2 >= cx - cw/2 
@@ -45,67 +55,75 @@ class enemy{
         seePlayer = false;
       }
     
+    //moves towards the player if they see it
       if(seePlayer == true){
         if(positionX <= player.pX + player.w/2){
           posX = posX - 1;
-          facing = 1;
         }
         if(positionX >= player.pX - player.w/2){
           posX = posX + 1;
-          facing = 2;
         } 
         if(positionY <= player.pY + player.h/2){
           posY = posY - 1;
-          facing = 3;
         } 
         if(positionY >= player.pY - player.h/2){
           posY = posY + 1;
-          facing = 4;
         } 
       }
     }
   }
   
   void collision(){
-    if(player.attacking){
-      if(player.facing == 1 
-      && (player.pX + 20) - player.w/2 <= positionX + w/2 
-      && (player.pX + 20) + player.w/2 >= positionX - w/2 
-      && player.pY - player.h/2 <= positionY + h/2 
-      && player.pY + player.h/2 >= positionY - h/2){
-        health = health - 1;
-        posX = posX - 25;
+    //checks if the player has hit the enemy with the sword
+    if(dead == false){
+      if(player.attacking){
+        if(player.facing == 1 
+        && (player.pX + 20) - player.w/2 <= positionX + w/2 
+        && (player.pX + 20) + player.w/2 >= positionX - w/2 
+        && player.pY - player.h/2 <= positionY + h/2 
+        && player.pY + player.h/2 >= positionY - h/2){
+          health = health - 1;
+          posX = posX - 30;
       }
       
       if(player.facing == 2 
-      && (player.pX - 20) - player.w/2 <= positionX + w/2 
-      && (player.pX - 20) + player.w/2 >= positionX - w/2 
-      && player.pY - player.h/2 <= positionY + h/2 
-      && player.pY + player.h/2 >= positionY - h/2){
-        health = health - 1;
-        posX = posX + 25;
+        && (player.pX - 20) - player.w/2 <= positionX + w/2 
+        && (player.pX - 20) + player.w/2 >= positionX - w/2 
+        && player.pY - player.h/2 <= positionY + h/2 
+        && player.pY + player.h/2 >= positionY - h/2){
+          health = health - 1;
+          posX = posX + 30;
       }
       
       if(player.facing == 3 
-      && player.pX - player.w/2 <= positionX + w/2 
-      && player.pX + player.w/2 >= positionX - w/2 
-      && (player.pY - 20) - player.h/2 <= positionY + h/2 
-      && (player.pY - 20) + player.h/2 >= positionY - h/2){
-        health = health - 1;
-        posY = posY + 25;
+        && player.pX - player.w/2 <= positionX + w/2 
+        && player.pX + player.w/2 >= positionX - w/2 
+        && (player.pY - 20) - player.h/2 <= positionY + h/2 
+        && (player.pY - 20) + player.h/2 >= positionY - h/2){
+          health = health - 1;
+          posY = posY + 30;
       }
       
       if(player.facing == 4
-      && player.pX - player.w/2 <= positionX + w/2 
-      && player.pX + player.w/2 >= positionX - w/2 
-      && (player.pY + 20) - player.h/2 <= positionY + h/2 
-      && (player.pY + 20) + player.h/2 >= positionY - h/2){
-        health = health - 1;
-        posY = posY - 25;
+        && player.pX - player.w/2 <= positionX + w/2 
+        && player.pX + player.w/2 >= positionX - w/2 
+        && (player.pY + 20) - player.h/2 <= positionY + h/2 
+        && (player.pY + 20) + player.h/2 >= positionY - h/2){
+          health = health - 1;
+          posY = posY - 30;
+        }
       }
-    }
+    
+    if(player.pX - player.w/2 <= positionX + w/2 
+      && player.pX + player.w/2 >= positionX - w/2 
+      && player.pY - player.h/2 <= positionY + h/2 
+      && player.pY + player.h/2 >= positionY - h/2){
+        player.health = player.health - 1;
+      }
+   }
     
     if(health <= 0){
+      //kills enemy when they run out of health
       dead = true;
     }
   }

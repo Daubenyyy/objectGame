@@ -1,4 +1,5 @@
 class Player{
+  //varibles
   States state;
   PVector position = new PVector(200, 200);
   PVector velocity = new PVector(0, 0);
@@ -8,9 +9,11 @@ class Player{
   boolean walking = false;
   boolean attacking = false;
   boolean shooting = false;
+  boolean dead = false;
   
   int facing = 1;
-  int lastFacing;
+  int counter = 0;
+  int health = 3;
   
   float pX = width/2;
   float pY = width/2;
@@ -18,12 +21,14 @@ class Player{
   float h = 20;
   
   void display(){
+    //draws the object
     rectMode(CENTER);
     fill(198, 0 ,0);
     rect(pX, pY, w, h);
   }
   
   void movement(){
+    //makes the player move
     if (walking){
       state = States.WALK;
       if(facing == 1){
@@ -55,7 +60,7 @@ class Player{
         }
       }
   
-    } else{
+    } else{ //makes the player stop when no longer walking
       state = States.IDLE;
       velocity.x = 0;
       acceleration.x = 0;
@@ -69,22 +74,57 @@ class Player{
   }
   
   void attacking(){
+    //makes the player attack in all directions
     if(attacking){
       state = States.ATTACK;
       if(facing == 1){
-        rect((width/2) + 20, height/2, 20, 5);
+        for(int i = 0; i <= 10; i++){
+          rect((width/2) + 20, height/2, 20, 5);
+          counter = counter + 1;
+        }
+        if(counter >= 120){
+          attacking = false;
+          counter = 0;
+        }
       }
       if(facing == 2){
-        rect((width/2) - 20, height/2, 20, 5);
+        for(int i = 0; i <= 10; i++){
+          rect((width/2) - 20, height/2, 20, 5);
+          counter = counter + 1;
+        }
+        if(counter >= 120){
+          attacking = false;
+          counter = 0;
+        }
       }
       if(facing == 3){
-        rect(width/2, (height/2) - 20, 5, 20);
+        for(int i = 0; i <= 10; i++){
+          rect(width/2, (height/2) - 20, 5, 20);
+          counter = counter + 1;
+        }
+        if(counter >= 120){
+          attacking = false;
+          counter = 0;
+        }
       }
       if(facing == 4){
-        rect(width/2, (height/2) + 20, 5, 20);
+        for(int i = 0; i <= 10; i++){
+          rect(width/2, (height/2) + 20, 5, 20);
+          counter = counter + 1;
+        }
+        if(counter >= 120){
+          attacking = false;
+          counter = 0;
+        }
       }
     } else{
       state = States.IDLE;
+    }
+  }
+  
+  void death(){
+    if(health <= 0){
+      gameState = 4;
     }
   }
 
