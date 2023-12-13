@@ -1,3 +1,0 @@
-class collision{
-  boolean hit;
-}
